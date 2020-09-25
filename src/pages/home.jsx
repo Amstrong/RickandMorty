@@ -1,6 +1,12 @@
 import React from "react";
+import InfoHome from "../components/InfoHome/InfoHome";
 
 function Home() {
-  return <h1>Home</h1>;
+  return (
+    <InfoHome>
+      <h1>Rick&Morty</h1>
+      <p className="text--subtitle">¡Conoce los personajes!</p>
+    </InfoHome>
+  );
 }
 export default Home;
