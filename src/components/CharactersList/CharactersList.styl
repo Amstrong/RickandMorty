@@ -1,2 +1,42 @@
 p
     color:white
+    margin:5px
+
+.container__characterList
+    display: flex
+    flex-wrap: wrap
+
+.container--character
+    width: 450px
+    height: 178px
+    margin: 10px
+    background-color: #333333
+    border-radius: 5px
+    color: red
+    display:grid
+    grid-template-columns: 1fr 1fr 
+    &:hover
+        transform: scale(1.05) 
+        transition-duration: 300ms
+
+    
+
+.photo__character
+    width: 150px
+    height: 150px
+    border-radius: 100px
+
+.photo
+    display: grid
+    align-items: center
+    justify-items: center
+
+.character__properties
+    display: grid
+    align-items: center
+
+
+p:nth-of-type(1)
+    font-weight:bold
+    margin:0
+    
