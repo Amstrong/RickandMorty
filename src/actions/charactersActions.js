@@ -6,9 +6,11 @@ export const getDataCharacters = () => async (dispatch) => {
     const characters = await Axios.get(
       "https://rickandmortyapi.com/api/character"
     );
+
+    
     dispatch({
       type: GET_DATA_CHARACTERS,
-      payload: characters,
+      payload: characters.data.results,
     });
   } catch (e) {
     console.log(e.message);
