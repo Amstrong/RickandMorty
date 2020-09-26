@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { GET_DATA_CHARACTERS } from "../types/characterTypes";
+import { GET_DATA_CHARACTERS, SET_SEARCH } from "../types/characterTypes";
 
 export const getDataCharacters = () => async (dispatch) => {
   try {
@@ -7,7 +7,6 @@ export const getDataCharacters = () => async (dispatch) => {
       "https://rickandmortyapi.com/api/character"
     );
 
-    
     dispatch({
       type: GET_DATA_CHARACTERS,
       payload: characters.data.results,
@@ -15,4 +14,11 @@ export const getDataCharacters = () => async (dispatch) => {
   } catch (e) {
     console.log(e.message);
   }
+};
+
+export const setSearch = (text) => (dispatch) => {
+  dispatch({
+    type: SET_SEARCH,
+    payload: text,
+  });
 };
