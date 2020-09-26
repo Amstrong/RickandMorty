@@ -2,6 +2,7 @@ import React from "react";
 import * as charactersActions from "../../actions/charactersActions";
 import { useDispatch, useSelector } from "react-redux";
 import CharactersList from "../../components/CharactersList/CharactersList";
+import FilterList from "../../components/FilterList/FilterList"
 import "../characters/characters.styl";
 import Logo from "../../assets/rick-and-morty-logo.png";
 
@@ -26,7 +27,7 @@ function Characters() {
         />
       </div>
       <div>
-        <p className="nose">3</p>
+        <FilterList/>
       </div>
       <div>
         <CharactersList list={characters} />
