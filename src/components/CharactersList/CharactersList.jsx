@@ -3,10 +3,29 @@ import "./CharactersList.styl";
 import { useSelector } from "react-redux";
 
 function CharactersList({ list }) {
+  let filteredCharacters = null;
   const characterName = useSelector((store) => store.characters.search);
-  const filteredCharacters = list.filter((character) => {
-    return character.name.toLowerCase().includes(characterName.toLowerCase());
-  });
+  const filterSelected = useSelector(
+    (store) => store.characters.selectedFilter
+  );
+  if (filterSelected != "") {
+    const filterNose = list.filter((character) => {
+      return(
+        character.species.toLowerCase() == filterSelected.toLowerCase() ||
+        character.gender.toLowerCase() == filterSelected.toLowerCase() ||
+        character.type.toLowerCase() == filterSelected.toLowerCase() ||
+        character.status.toLowerCase() == filterSelected.toLowerCase() 
+      )
+    });
+    filteredCharacters = filterNose.filter((character) => {
+      return character.name.toLowerCase().includes(characterName.toLowerCase());
+    });
+  } else {
+    filteredCharacters = list.filter((character) => {
+      return character.name.toLowerCase().includes(characterName.toLowerCase());
+    });
+  }
+
   return (
     <div>
       {!list.length ? (

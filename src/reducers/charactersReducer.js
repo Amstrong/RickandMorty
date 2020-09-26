@@ -6,7 +6,7 @@ import {
 const INITIAL_STATE = {
   charactersData: [],
   search: "",
-  filters: ["Humans", "Alive", "Earth", "Planet", "Space station"],
+  filters: ["Human", "Alive", "Dead", "Male", "Female", "Genetic experiment"],
   selectedFilter: "",
 };
 export default (state = INITIAL_STATE, action) => {

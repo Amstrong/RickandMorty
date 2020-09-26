@@ -9,7 +9,7 @@ function FilterList() {
   return (
     <React.Fragment>
       {filters.map((filter) => {
-        return <p onClick={() => dispatch(selectedFilter(filter))}>{filter}</p>;
+        return <p key={filter} onClick={() => dispatch(selectedFilter(filter))}>{filter}</p>;
       })}
     </React.Fragment>
   );
