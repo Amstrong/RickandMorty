@@ -58,13 +58,17 @@ function CharactersList({ list, nextPage }) {
               );
             })}
           </div>
+          <div className="btn--container">
           <button
+          className="btn--moreCharacters"
             onClick={() =>
               dispatch(charactersActions.getDataCharacters(nextPage))
             }
           >
             Cargar más
           </button>
+          </div>
+          
         </React.Fragment>
       )}
     </div>
