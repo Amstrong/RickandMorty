@@ -30,7 +30,7 @@ function CharactersList({ list, nextPage }) {
   return (
     <div>
       {!list.length ? (
-        console.log("No hay")
+       null
       ) : (
         <React.Fragment>
           <div className="container__characterList">

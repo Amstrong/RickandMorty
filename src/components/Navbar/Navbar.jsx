@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../assets/rick-and-morty-logo.png";
 import "../Navbar/Navbar.styl";
+import { Link } from "@reach/router";
 import { selectedFilter } from "../../actions/charactersActions";
 import { useSelector, useDispatch } from "react-redux";
 export default function Navbar() {
@@ -9,7 +10,10 @@ export default function Navbar() {
   return (
     <div className="container__navbar">
       <div className="container__logo">
-        <img src={Logo} alt="LogoRickandMorty" className="logo-navbar" />
+      <Link to="/">
+      <img src={Logo} alt="LogoRickandMorty" className="logo-navbar" />
+      </Link>
+       
       </div>
       <div className="container__filters">
         {filters.map((filter) => {

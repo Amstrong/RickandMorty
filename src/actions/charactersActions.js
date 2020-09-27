@@ -4,6 +4,7 @@ import {
   SET_SEARCH,
   SELECTED_FILTER,
   SUM_NEXT_PAGE,
+  ERROR,
 } from "../types/characterTypes";
 
 export const getDataCharacters = (nextPage) => async (dispatch) => {
@@ -20,7 +21,10 @@ export const getDataCharacters = (nextPage) => async (dispatch) => {
       type: SUM_NEXT_PAGE,
     });
   } catch (e) {
-    console.log(e.message);
+    dispatch({
+      type:ERROR,
+      payload: "Por favor, intentalo más tarde."
+    })
   }
 };
 
@@ -31,9 +35,19 @@ export const setSearch = (text) => (dispatch) => {
   });
 };
 
-export const selectedFilter = (filter) => (dispatch) => {
-  dispatch({
-    type: SELECTED_FILTER,
-    payload: filter,
-  });
+export const selectedFilter = (filter) => (dispatch,getState) => {
+  const {selectedFilter} = getState().characters
+  if (selectedFilter.toLowerCase() == filter.toLowerCase()) {
+    dispatch({
+      type: SELECTED_FILTER,
+      payload: "",
+    });
+    
+  }else{
+    dispatch({
+      type: SELECTED_FILTER,
+      payload: filter,
+    });
+  }
+  
 };
