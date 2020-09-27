@@ -20,27 +20,25 @@ const config = {
         test: /\.styl$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "stylus-loader"],
       },
-      {
-        test: /\.svg$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              generator: (content) => svgToMiniDataURI(content.toString()),
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.(png|jpg|gif)$/i,
+      //   use: [
+      //     {
+      //       loader: "url-loader",
+      //       options: {
+      //         mimetype: "image/png",
+      //       },
+      //     },
+      //   ],
+      // },
       {
         test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              mimetype: "image/png",
-            },
-          },
-        ],
+        use: {
+          loader: "file-loader",
+          options: {
+            outputPath: "assets/"
+          }
+        }
       },
     ],
   },
@@ -57,6 +55,8 @@ const config = {
     new HtmlWebpackPlugin({
       appMountId: "app",
       filename: "index.html",
+      // title: "Rick & Morty",
+      // template: "src/index.html"
     }),
     new MiniCssExtractPlugin(),
   ],

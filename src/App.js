@@ -4,7 +4,7 @@ import { Router } from "@reach/router";
 import Home from "./pages/home";
 import Characters from "./pages/characters/characters";
 import NotFound from "./components/NotFound/NotFound";
-import Error from "./components/ErrorComp/ErrorComp"
+import Error from "./components/Loading/Loading"
 
 function App() {
   return (

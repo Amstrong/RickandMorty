@@ -3,6 +3,7 @@ import * as charactersActions from "../../actions/charactersActions";
 import { useDispatch, useSelector } from "react-redux";
 import CharactersList from "../../components/CharactersList/CharactersList";
 import ErrorComp from "../../components/ErrorComp/ErrorComp";
+import Loading from "../../components/Loading/Loading"
 import "../characters/characters.styl";
 import Navbar from "../../components/Navbar/Navbar";
 
@@ -10,12 +11,16 @@ function Characters() {
   const characters = useSelector((store) => store.characters.charactersData);
   const nextPage = useSelector((store) => store.characters.nextPage);
   const error = useSelector((store) => store.characters.error);
+  const loading = useSelector((store) => store.characters.loading);
   const dispatch = useDispatch();
   if (!characters.length) {
     dispatch(charactersActions.getDataCharacters(nextPage));
   }
   if (error.length != "") {
     return <ErrorComp error={error} />;
+  }
+  if(loading){
+    return <Loading/>
   }
 
   return (
