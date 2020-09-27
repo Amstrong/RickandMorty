@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 function CharactersList({ list, nextPage }) {
   let filteredCharacters = null;
   const characterName = useSelector((store) => store.characters.search);
+  const maxPages = useSelector((store) => store.characters.maxPages);
   const dispatch = useDispatch();
   const filterSelected = useSelector(
     (store) => store.characters.selectedFilter
@@ -29,9 +30,7 @@ function CharactersList({ list, nextPage }) {
 
   return (
     <div>
-      {!list.length ? (
-       null
-      ) : (
+      {!list.length ? null : (
         <React.Fragment>
           <div className="container__characterList">
             {filteredCharacters.map((character) => {
@@ -59,16 +58,17 @@ function CharactersList({ list, nextPage }) {
             })}
           </div>
           <div className="btn--container">
-          <button
-          className="btn--moreCharacters"
-            onClick={() =>
-              dispatch(charactersActions.getDataCharacters(nextPage))
-            }
-          >
-            Cargar más
-          </button>
+            {maxPages > nextPage ? (
+              <button
+                className="btn--moreCharacters"
+                onClick={() =>
+                  dispatch(charactersActions.getDataCharacters(nextPage))
+                }
+              >
+                Cargar más
+              </button>
+            ) : null}
           </div>
-          
         </React.Fragment>
       )}
     </div>

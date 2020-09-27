@@ -3,15 +3,17 @@ import {
   SET_SEARCH,
   SELECTED_FILTER,
   SUM_NEXT_PAGE,
-  ERROR
+  ERROR,MAX_PAGES
 } from "../types/characterTypes";
 const INITIAL_STATE = {
   charactersData: [],
+  maxPages: null,
   search: "",
+  error: "",
   filters: ["Human", "Alive", "Dead", "Male", "Female", "Genetic experiment"],
   selectedFilter: "",
   nextPage: 1,
-  error: "",
+  
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -22,6 +24,8 @@ export default (state = INITIAL_STATE, action) => {
       };
     case ERROR:
       return { ...state, error: action.payload };
+    case MAX_PAGES:
+      return{...state, maxPages: action.payload};
     case SET_SEARCH:
       return { ...state, search: action.payload };
     case SELECTED_FILTER:

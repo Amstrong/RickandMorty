@@ -5,6 +5,7 @@ import {
   SELECTED_FILTER,
   SUM_NEXT_PAGE,
   ERROR,
+  MAX_PAGES
 } from "../types/characterTypes";
 
 export const getDataCharacters = (nextPage) => async (dispatch) => {
@@ -12,7 +13,11 @@ export const getDataCharacters = (nextPage) => async (dispatch) => {
     const characters = await Axios.get(
       `https://rickandmortyapi.com/api/character?page=${nextPage}`
     );
-
+    console.log(characters.data)
+    dispatch({
+      type:MAX_PAGES,
+      payload: characters.data.info.pages
+    })
     dispatch({
       type: GET_DATA_CHARACTERS,
       payload: characters.data.results,
