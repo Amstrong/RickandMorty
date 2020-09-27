@@ -4,8 +4,8 @@ import InfoHome from "../components/InfoHome/InfoHome";
 function Home() {
   return (
     <InfoHome>
-      <h1>Rick&Morty</h1>
-      <p className="text--subtitle">¡Conoce los personajes!</p>
+      <p className="text--title">Rick&Morty</p>
+      <p className="text--subtitle">¡Conoce todos los personajes!</p>
     </InfoHome>
   );
 }

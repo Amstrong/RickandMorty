@@ -1,15 +1,23 @@
 import Axios from "axios";
-import { GET_DATA_CHARACTERS, SET_SEARCH ,SELECTED_FILTER} from "../types/characterTypes";
+import {
+  GET_DATA_CHARACTERS,
+  SET_SEARCH,
+  SELECTED_FILTER,
+  SUM_NEXT_PAGE,
+} from "../types/characterTypes";
 
-export const getDataCharacters = () => async (dispatch) => {
+export const getDataCharacters = (nextPage) => async (dispatch) => {
   try {
     const characters = await Axios.get(
-      "https://rickandmortyapi.com/api/character"
+      `https://rickandmortyapi.com/api/character?page=${nextPage}`
     );
 
     dispatch({
       type: GET_DATA_CHARACTERS,
       payload: characters.data.results,
+    });
+    dispatch({
+      type: SUM_NEXT_PAGE,
     });
   } catch (e) {
     console.log(e.message);
@@ -23,9 +31,9 @@ export const setSearch = (text) => (dispatch) => {
   });
 };
 
-export const selectedFilter = (filter) => (dispatch) =>{
+export const selectedFilter = (filter) => (dispatch) => {
   dispatch({
     type: SELECTED_FILTER,
-    payload: filter
-  })
-}
+    payload: filter,
+  });
+};

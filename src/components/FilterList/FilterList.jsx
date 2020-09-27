@@ -8,6 +8,7 @@ function FilterList() {
 
   return (
     <React.Fragment>
+    <p>Elige tu filtro</p>
       {filters.map((filter) => {
         return <p key={filter} onClick={() => dispatch(selectedFilter(filter))}>{filter}</p>;
       })}
