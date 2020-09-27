@@ -1,44 +1,87 @@
 body
     background-color:black
     font-family: 'Jost', sans-serif;
+    margin:0
 
-.container
-    display: grid
-    align-items: center
-    justify-items: center
-    grid-template-columns: 1fr 1fr
-    height: 100vh
-    color: white
-    border: 0
+@media (min-width: 1024px)
+    .container
+        display: grid
+        align-items: center
+        justify-items: center
+        grid-template-columns: 1fr 1fr
+        height: 100vh
+        color: white
+        border: 0
 
-.container__elements
-    display:grid
-    justify-items: center
+    .container__elements
+        display:grid
+        justify-items: center
 
-.photo__img
-    width:400px
-    height:400px
+    .photo__img
+        width:400px
+        height:400px
 
-.btn--start
-    font-family: 'Jost', sans-serif;
-    width:340px
-    height:50px
-    font-size:20px
-    background-color: #00D606
-    border: 0
-    border-radius: 5px
-    color:white
-    cursor: pointer
+    .btn--start
+        font-family: 'Jost', sans-serif;
+        width:340px
+        height:50px
+        font-size:20px
+        background-color: #00D606
+        border: 0
+        border-radius: 5px
+        color:white
+        cursor: pointer
 
-.btn--start:hover   
-    opacity: 0.7
+    .btn--start:hover   
+        opacity: 0.7
 
-.text--title
-    font-weight:500
-    font-size:50px    
+    .text--title
+        font-weight:500
+        font-size:50px    
 
-.text--subtitle
-    font-size: 35px  
-    font-weight:300
-    margin: 0 0 10px 0
+    .text--subtitle
+        font-size: 35px  
+        font-weight:300
+        margin: 0 0 10px 0
+
+@media (max-width: 1023px)
+
+    .container
+        position: relative
+        top: 50%
+        transform: translateY(50%)
+        heigth:100vh
+        color: white
+        border: 0
+
+    .container__elements
+        display:grid
+        justify-items: center
+
+    .photo__img
+        width:200px
+        height:200px
+
+    .btn--start
+        font-family: 'Jost', sans-serif;
+        width:320px
+        height:45px
+        font-size:20px
+        background-color: #00D606
+        border: 0
+        border-radius: 5px
+        color:white
+        cursor: pointer
+
+    .btn--start:hover   
+        opacity: 0.7
+
+    .text--title
+        font-weight:500
+        font-size:30px    
+
+    .text--subtitle
+        font-size: 25px  
+        font-weight:300
+        margin: 0 0 10px 0
 

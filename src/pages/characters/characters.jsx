@@ -15,25 +15,22 @@ function Characters() {
   }
 
   return (
-    <React.Fragment>
-    <Navbar/>
-    <div className="container__character">
-    <div className="container-char">
-  <input
-    placeholder="Ingresa el nombre de tu personaje..."
-    onChange={(e) =>
-      dispatch(charactersActions.setSearch(e.target.value))
-    }
-  />
-</div>
-<div>
-  <CharactersList list={characters} nextPage={nextPage} />
-</div>
-
+    <div className="characters">
+      <Navbar />
+      <div className="container__character">
+        <div className="container-char">
+          <input
+            placeholder="Ingresa el nombre de tu personaje..."
+            onChange={(e) =>
+              dispatch(charactersActions.setSearch(e.target.value))
+            }
+          />
+        </div>
+        <div>
+          <CharactersList list={characters} nextPage={nextPage} />
+        </div>
+      </div>
     </div>
-    </React.Fragment>
-  
-    
-    );
+  );
 }
 export default Characters;
