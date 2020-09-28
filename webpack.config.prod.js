@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
+
 module.exports = {
   entry: {
     app: path.resolve(__dirname, "src/index.js"),
@@ -57,6 +58,6 @@ module.exports = {
     new webpack.DllReferencePlugin({
       manifest: require("./modules-manifest.json"),
       context: path.resolve(__dirname,"src")
-    })
+    }),
   ],
 };

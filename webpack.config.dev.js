@@ -2,9 +2,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
+
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, "src/index.js"),
+    app: path.resolve(__dirname, "src/frontend/index.js"),
     // entry: ["react-hot-loader/patch", "./src/index.js"],
   },
   output: {
