@@ -17,7 +17,7 @@ var mountNode = document.getElementById("app");
 document.body.innerHTML = '<div id="app"></div>';
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App/>
   </Provider>,
   document.getElementById("app")
 );

@@ -8,11 +8,11 @@ import {
   MAX_PAGES,LOADING
 } from "../types/characterTypes";
 
-export const getDataCharacters = (nextPage) => async (dispatch) => {
-  dispatch({
-    type: LOADING,
-    payload: true
-  })
+export const getDataCharacters = (nextPage) => async (dispatch,getState) => {
+  const {nextPage} = getState().characters
+  // dispatch({
+  //   type: LOADING,
+  // })
   try {
     const characters = await Axios.get(
       `https://rickandmortyapi.com/api/character?page=${nextPage}`
@@ -29,10 +29,6 @@ export const getDataCharacters = (nextPage) => async (dispatch) => {
     dispatch({
       type: SUM_NEXT_PAGE,
     });
-    dispatch({
-      type: LOADING,
-      payload: false
-    })
   } catch (e) {
     dispatch({
       type:ERROR,

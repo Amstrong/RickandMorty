@@ -2,10 +2,11 @@ import React from "react";
 import "./CharactersList.styl";
 import * as charactersActions from "../../actions/charactersActions";
 import { useDispatch, useSelector } from "react-redux";
-function CharactersList({ list, nextPage }) {
+function CharactersList({ list}) {
   let filteredCharacters = null;
   const characterName = useSelector((store) => store.characters.search);
   const maxPages = useSelector((store) => store.characters.maxPages);
+  const nextPage = useSelector((store) => store.characters.nextPage);
   const dispatch = useDispatch();
   const filterSelected = useSelector(
     (store) => store.characters.selectedFilter
@@ -62,7 +63,7 @@ function CharactersList({ list, nextPage }) {
               <button
                 className="btn--moreCharacters"
                 onClick={() =>
-                  dispatch(charactersActions.getDataCharacters(nextPage))
+                  dispatch(charactersActions.getDataCharacters())
                 }
               >
                 Cargar más

@@ -23,6 +23,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         charactersData: state.charactersData.concat(action.payload),
+        loading: false
       };
     case ERROR:
       return { ...state, error: action.payload };
@@ -35,7 +36,7 @@ export default (state = INITIAL_STATE, action) => {
     case SUM_NEXT_PAGE:
       return { ...state, nextPage: state.nextPage + 1 };
     case LOADING:
-      return{...state, loading: action.payload}
+      return{...state, loading: true}
 
     default:
       return state;

@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../assets/rick-and-morty-logo.png";
 import "../Navbar/Navbar.styl";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import { selectedFilter } from "../../actions/charactersActions";
 import { useSelector, useDispatch } from "react-redux";
 export default function Navbar() {
