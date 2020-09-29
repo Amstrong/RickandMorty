@@ -2,14 +2,16 @@ import React from "react";
 import "./CharactersList.styl";
 import * as charactersActions from "../../actions/charactersActions";
 import { useDispatch, useSelector } from "react-redux";
+
+
 function CharactersList({ list}) {
   let filteredCharacters = null;
-  const characterName = useSelector((store) => store.characters.search);
-  const maxPages = useSelector((store) => store.characters.maxPages);
-  const nextPage = useSelector((store) => store.characters.nextPage);
+  const characterName = useSelector((state) => state.search);
+  const maxPages = useSelector((state) => state.maxPages);
+  const nextPage = useSelector((state) => state.nextPage);
   const dispatch = useDispatch();
   const filterSelected = useSelector(
-    (store) => store.characters.selectedFilter
+    (state) => state.selectedFilter
   );
   if (filterSelected != "") {
     const filterNose = list.filter((character) => {

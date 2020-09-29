@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "../../assets/giphy.gif";
-import "../Loading/Loading.styl"
-export default function Loading() {
+import "./Loading.styl";
+function Loading() {
   return (
     <div className="container__loading">
       <div className="loading__element">
@@ -10,3 +10,4 @@ export default function Loading() {
     </div>
   );
 }
+export default Loading;

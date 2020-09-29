@@ -2,7 +2,7 @@ import React from "react";
 import "../../components/NotFound/NotFound.styl";
 import { Link } from "react-router-dom";
 import Morty from "../../assets/morty_404.png";
-export default function NotFound() {
+export default function NotFoundComponent(){
   return (
     <div className="container__notFound">
       <div className="notFound__elements">
@@ -14,4 +14,5 @@ export default function NotFound() {
       </div>
     </div>
   );
-}
+};
+

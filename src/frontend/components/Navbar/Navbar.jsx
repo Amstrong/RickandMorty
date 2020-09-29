@@ -2,11 +2,11 @@ import React from "react";
 import Logo from "../../assets/rick-and-morty-logo.png";
 import "../Navbar/Navbar.styl";
 import { Link } from "react-router-dom";
-import { selectedFilter } from "../../actions/charactersActions";
+import * as charactersActions from "../../actions/charactersActions";
 import { useSelector, useDispatch } from "react-redux";
-export default function Navbar() {
+function Navbar() {
   const dispatch = useDispatch();
-  const filters = useSelector((store) => store.characters.filters);
+  const filters = useSelector((state) => state.filters);
   return (
     <div className="container__navbar">
       <div className="container__logo">
@@ -21,7 +21,7 @@ export default function Navbar() {
             <p
               className="filters"
               key={filter}
-              onClick={() => dispatch(selectedFilter(filter))}
+              onClick={() => dispatch(charactersActions.selectedFilter(filter))}
             >
               {filter}
             </p>
@@ -31,3 +31,4 @@ export default function Navbar() {
     </div>
   );
 }
+export default Navbar
