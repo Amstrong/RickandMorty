@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as charactersActions from "../../actions/charactersActions";
 import { connect } from "react-redux";
-import CharactersList from "../../components/CharactersList/CharactersList";
+import CharactersList from "../../components/CharactersList/ListCharacters";
 import ErrorComp from "../../components/ErrorComp/ErrorComp";
 import Loading from "../../components/Loading/Loading";
 import "./characters.styl";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar/NavbarComp";
+
+import { useGetData } from "../../components/hooks/useGetData";
 
 const charactersPage = (props) => {
-  if (props.characters.length == []) {
-    props.getDataCharacters();
-  }
+  const characters = useGetData(props.nextPage);
+    props.getDataCharacters(characters);
+
+    
   if (props.error.length != "") {
     return <ErrorComp error={error} />;
   }
+
+
 
   return (
     <div className="characters">
@@ -27,7 +32,7 @@ const charactersPage = (props) => {
           />
         </div>
         <div>
-          <CharactersList list={props.characters} />
+          <CharactersList list={characters} />
         </div>
       </div>
     </div>
@@ -36,9 +41,9 @@ const charactersPage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    characters: state.charactersData,
     error: state.error,
     loading: state.loading,
+    nextPage: state.nextPage,
   };
 };
 

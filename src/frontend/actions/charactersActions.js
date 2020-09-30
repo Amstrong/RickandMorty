@@ -9,53 +9,26 @@ import {
   LOADING,
 } from "../types/characterTypes";
 
-export const getDataCharacters = (nextPage) => async (dispatch, getState) => {
-  const { nextPage } = getState();
-  // dispatch({
-  //   type: LOADING,
-  // })
-  try {
-    const characters = await Axios.get(
-      `https://rickandmortyapi.com/api/character?page=${nextPage}`
-    );
-    console.log(characters.data);
-    dispatch({
-      type: MAX_PAGES,
-      payload: characters.data.info.pages,
-    });
-    dispatch({
-      type: GET_DATA_CHARACTERS,
-      payload: characters.data.results,
-    });
-    dispatch({
-      type: SUM_NEXT_PAGE,
-    });
-  } catch (e) {
-    dispatch({
-      type: ERROR,
-      payload: "Por favor, intentalo más tarde.",
-    });
-  }
-};
+export const getDataCharacters = (payload) => ({
+  type: GET_DATA_CHARACTERS,
+  payload,
+});
 
-export const setSearch = (text) => (dispatch) => {
-  dispatch({
-    type: SET_SEARCH,
-    payload: text,
-  });
-};
+export const maxPages = (payload) => ({
+  type: MAX_PAGES,
+  payload,
+});
 
-export const selectedFilter = (filter) => (dispatch, getState) => {
-  const { selectedFilter } = getState();
-  if (selectedFilter.toLowerCase() == filter.toLowerCase()) {
-    dispatch({
-      type: SELECTED_FILTER,
-      payload: "",
-    });
-  } else {
-    dispatch({
-      type: SELECTED_FILTER,
-      payload: filter,
-    });
-  }
-};
+export const setSearch = (payload) => ({
+  type: SET_SEARCH,
+  payload,
+});
+
+export const selectedFilter = (payload) => ({
+  type: SELECTED_FILTER,
+  payload,
+});
+
+export const sumNextPage = () => ({
+  type: SUM_NEXT_PAGE,
+});

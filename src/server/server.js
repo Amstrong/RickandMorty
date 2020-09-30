@@ -2,11 +2,12 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import  {renderRoutes}  from "react-router-config";
+import { renderRoutes } from "react-router-config";
 import { StaticRouter } from "react-router-dom";
 import routes from "../frontend/routes/serverRoutes";
 import reducer from "../frontend/reducers/index";
 import initialState from "../frontend/reducers/initialState";
+import getManifest from "./getManifest";
 import express from "express";
 import dotenv from "dotenv";
 import webpack from "webpack";
@@ -26,15 +27,25 @@ if (ENV === "development") {
 
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
+} else {
+  app.use((req, res, next) => {
+    if (!req.hashManifest) req.hashManifest = getManifest();
+    next();
+  });
+  app.use(express.static(`${__dirname}/public`));
 }
-const setResponse = (html, preloadedState) => {
+const setResponse = (html, preloadedState, manifest) => {
+  const mainStyles = manifest ? manifest["main.css"] : "assets/app.css";
+   const mainBuild = manifest ? manifest["main.js"] : "assets/app.js";
+   const vendorBuild = manifest ? manifest["vendors.js"] : "assets/vendor.js";
+
   return `
     <!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="assets/app.css" type="text/css"/>
+      <link rel="stylesheet" href="${mainStyles}" type="text/css"/>
       <title>Rick & Morty</title>
   
   </head>
@@ -47,7 +58,8 @@ const setResponse = (html, preloadedState) => {
       )}
       </script>
       <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-      <script src="assets/app.js"></script>
+      <script src="${mainBuild}"></script>
+      <script src="${vendorBuild}"></script>
   </body>
   </html>
   `;
@@ -59,17 +71,16 @@ const renderApp = (req, res) => {
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
-          {renderRoutes(routes)}
+        {renderRoutes(routes)}
       </StaticRouter>
     </Provider>
   );
-  console.log("las rutas son", routes);
-  res.send(setResponse(html, preloadedState));
+  res.send(setResponse(html, preloadedState, req.hashManifest));
 };
 
 app.get("*", renderApp);
 
 app.listen(PORT, (err) => {
   if (err) console.log(err);
-  else console.log("Server running on port 3000");
+  else console.log(`Server running on port${PORT}`);
 });

@@ -4,7 +4,7 @@ import * as charactersActions from "../../actions/charactersActions";
 import { useDispatch, useSelector } from "react-redux";
 
 
-function CharactersList({ list}) {
+function ListCharacters({ list}) {
   let filteredCharacters = null;
   const characterName = useSelector((state) => state.search);
   const maxPages = useSelector((state) => state.maxPages);
@@ -77,4 +77,4 @@ function CharactersList({ list}) {
     </div>
   );
 }
-export default CharactersList;
+export default ListCharacters;

@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         charactersData: state.charactersData.concat(action.payload),
-        loading: false,
+        
       };
     case ERROR:
       return { ...state, error: action.payload };

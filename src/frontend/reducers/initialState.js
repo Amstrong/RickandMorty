@@ -1,6 +1,6 @@
 const initialState = {
   charactersData: [],
-  maxPages: null,
+  maxPages: 34,
   search: "",
   loading: false,
   error: "",

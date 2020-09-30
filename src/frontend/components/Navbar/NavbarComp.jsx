@@ -4,7 +4,7 @@ import "../Navbar/Navbar.styl";
 import { Link } from "react-router-dom";
 import * as charactersActions from "../../actions/charactersActions";
 import { useSelector, useDispatch } from "react-redux";
-function Navbar() {
+function NavbarComp() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
   return (
@@ -31,4 +31,4 @@ function Navbar() {
     </div>
   );
 }
-export default Navbar
+export default NavbarComp

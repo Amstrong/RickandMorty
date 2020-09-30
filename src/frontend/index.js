@@ -11,11 +11,7 @@ import reduxThunk from "redux-thunk";
 const preloadedState = window.__PRELOADED_STATE__;
 const history = createBrowserHistory();
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  reducers,
-  preloadedState,
-  composeEnhancer(applyMiddleware(reduxThunk))
-);
+const store = createStore(reducers, preloadedState, composeEnhancer());
 delete window.__PRELOADED_STATE__;
 
 ReactDOM.hydrate(
