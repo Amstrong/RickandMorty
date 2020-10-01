@@ -8,4 +8,14 @@ export function useGetData(nextPage) {
       .then((data) => setCharacters(data.results));
   }, []);
   return characters;
+
+
+
+
+    // return fetch(`https://rickandmortyapi.com/api/character?page=${nextPage}`)
+    //   .then((response) => response.json())
+    //   .then((data) => data)
+    //   .catch(error => console.log(error))
+ 
+  // return characters;
 }

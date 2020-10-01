@@ -8,6 +8,7 @@ import "./characters.styl";
 import Navbar from "../../components/Navbar/NavbarComp";
 
 import { useGetData } from "../../components/hooks/useGetData";
+console.log(useGetData)
 
 const charactersPage = (props) => {
   const characters = useGetData(props.nextPage);
