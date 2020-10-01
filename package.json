@@ -7,10 +7,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start:dev": "nodemon src/server/index",
-    "build": "webpack-cli --config webpack.config.dev.js",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "start": "node src/server/index",
+    "build": "webpack --config webpack.config.js",
+    "build:start": "webpack --config webpack.config.js && node src/server/index"
   },
   "dependencies": {
     "@babel/register": "^7.11.5",
