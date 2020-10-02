@@ -2,15 +2,18 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as charactersActions from "../../actions/charactersActions";
 
-export function useGetData(nextPage) {
+export function getData(nextPage) {
   const dispatch = useDispatch();
-  const [characters, setCharacters] = useState([]);
-  useEffect(() => {
+//   const [characters, setCharacters] = useState([]);
+//   useEffect(() => {
+
     fetch(`https://rickandmortyapi.com/api/character?page=${nextPage}`)
       .then((response) => response.json())
-      .then((data) => setCharacters(data.results));
+      .then((data) =>  dispatch(charactersActions.getDataCharacters(data)) );
+     
+    
     dispatch(charactersActions.sumNextPage());
-  }, []);
-  dispatch(charactersActions.getDataCharacters(characters));
-  return characters;
+//   }, []);
+//   console.log(characters)
+//   return characters;
 }

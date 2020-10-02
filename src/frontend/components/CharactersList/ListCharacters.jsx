@@ -2,17 +2,20 @@ import React from "react";
 import "./CharactersList.styl";
 import * as charactersActions from "../../actions/charactersActions";
 import { useDispatch, useSelector } from "react-redux";
+import { useGetData } from "../hooks/useGetData";
 
-
-function ListCharacters({ list}) {
+function ListCharacters({ list }) {
   let filteredCharacters = null;
   const characterName = useSelector((state) => state.search);
   const maxPages = useSelector((state) => state.maxPages);
   const nextPage = useSelector((state) => state.nextPage);
   const dispatch = useDispatch();
-  const filterSelected = useSelector(
-    (state) => state.selectedFilter
-  );
+
+  const loadMoreCharacters = () => {
+    useGetData(nextPage);
+  };
+
+  const filterSelected = useSelector((state) => state.selectedFilter);
   if (filterSelected != "") {
     const filterNose = list.filter((character) => {
       return (
@@ -64,9 +67,7 @@ function ListCharacters({ list}) {
             {maxPages > nextPage ? (
               <button
                 className="btn--moreCharacters"
-                onClick={() =>
-                  dispatch(charactersActions.getDataCharacters())
-                }
+                onClick={loadMoreCharacters}
               >
                 Cargar más
               </button>

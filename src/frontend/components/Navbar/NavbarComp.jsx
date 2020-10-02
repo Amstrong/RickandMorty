@@ -7,13 +7,21 @@ import { useSelector, useDispatch } from "react-redux";
 function NavbarComp() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
+  const selectedFilter = useSelector((state) => state.selectedFilter);
+
+  const selectFilter = (filter) => {
+    if (selectedFilter) {
+      dispatch(charactersActions.selectedFilter(""));
+    } else {
+      dispatch(charactersActions.selectedFilter(filter));
+    }
+  };
   return (
     <div className="container__navbar">
       <div className="container__logo">
-      <Link to="/">
-      <img src={Logo} alt="LogoRickandMorty" className="logo-navbar" />
-      </Link>
-       
+        <Link to="/">
+          <img src={Logo} alt="LogoRickandMorty" className="logo-navbar" />
+        </Link>
       </div>
       <div className="container__filters">
         {filters.map((filter) => {
@@ -21,7 +29,7 @@ function NavbarComp() {
             <p
               className="filters"
               key={filter}
-              onClick={() => dispatch(charactersActions.selectedFilter(filter))}
+              onClick={() => selectFilter(filter)}
             >
               {filter}
             </p>
@@ -31,4 +39,4 @@ function NavbarComp() {
     </div>
   );
 }
-export default NavbarComp
+export default NavbarComp;

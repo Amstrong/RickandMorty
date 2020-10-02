@@ -8,18 +8,16 @@ import "./characters.styl";
 import Navbar from "../../components/Navbar/NavbarComp";
 
 import { useGetData } from "../../components/hooks/useGetData";
-console.log(useGetData)
+console.log(useGetData);
 
 const charactersPage = (props) => {
   const characters = useGetData(props.nextPage);
-    props.getDataCharacters(characters);
+  // props.getDataCharacters(characters);
+  
 
-    
   if (props.error.length != "") {
     return <ErrorComp error={error} />;
   }
-
-
 
   return (
     <div className="characters">
