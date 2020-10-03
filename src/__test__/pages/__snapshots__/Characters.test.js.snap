@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Characters/> Characters: Comprobando Link de ReactRouter 1`] = `
+<a
+  href="/"
+  onClick={[Function]}
+/>
+`;

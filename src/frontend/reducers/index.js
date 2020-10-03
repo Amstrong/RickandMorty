@@ -14,10 +14,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         charactersData: state.charactersData.concat(action.payload),
-        
       };
     case ERROR:
-      return { ...state, error: action.payload };
+      return { ...state, error: action.payload};
     case MAX_PAGES:
       return { ...state, maxPages: action.payload };
     case SET_SEARCH:
@@ -27,7 +26,7 @@ export default (state = initialState, action) => {
     case SUM_NEXT_PAGE:
       return { ...state, nextPage: state.nextPage + 1 };
     case LOADING:
-      return { ...state, loading: true };
+      return { ...state, loading: action.payload };
     default:
       return state;
   }

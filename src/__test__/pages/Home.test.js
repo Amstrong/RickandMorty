@@ -6,8 +6,8 @@ import { StaticRouter } from "react-router";
 import Home from "../../frontend/pages/home/homePage";
 import ProviderMock from "../../__mocks__/ProviderMock";
 
-describe("Test del Home", () => {
-  test("Home: Comprobando la UI", () => {
+describe("<Home/>", () => {
+  test("Home: Checking title", () => {
     const home = mount(
       <ProviderMock>
         <Home />
@@ -16,7 +16,7 @@ describe("Test del Home", () => {
     expect(home.find(".text--title").text()).toEqual("Rick&Morty");
   });
 
-  test("Home: Comprobando Link de ReactRouter", () => {
+  test("Home: Verifying the ReactRouter Link", () => {
     const component = renderer.create(
       <StaticRouter location="someLocation" context={{}}>
         <Link to="/characters" />

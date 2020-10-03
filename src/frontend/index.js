@@ -8,6 +8,7 @@ import { Router } from "react-router";
 import { Provider } from "react-redux";
 import reducers from "../frontend/reducers/index";
 import reduxThunk from "redux-thunk";
+import initialState from "./reducers/initialState";
 const preloadedState = window.__PRELOADED_STATE__;
 const history = createBrowserHistory();
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

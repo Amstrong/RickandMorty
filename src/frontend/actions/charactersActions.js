@@ -1,4 +1,3 @@
-import Axios from "axios";
 import {
   GET_DATA_CHARACTERS,
   SET_SEARCH,
@@ -32,3 +31,13 @@ export const selectedFilter = (payload) => ({
 export const sumNextPage = () => ({
   type: SUM_NEXT_PAGE,
 });
+
+export const errorAction = (payload) => ({
+  type: ERROR,
+  payload
+})
+
+export const loading = (payload) => ({
+  type:LOADING,
+  payload
+})

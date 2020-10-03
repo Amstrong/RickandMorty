@@ -1,23 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./CharactersList.styl";
 import * as charactersActions from "../../actions/charactersActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useGetData } from "../hooks/useGetData";
-
-function ListCharacters({ list }) {
+function ListCharacters() {
   let filteredCharacters = null;
   const characterName = useSelector((state) => state.search);
   const maxPages = useSelector((state) => state.maxPages);
   const nextPage = useSelector((state) => state.nextPage);
   const dispatch = useDispatch();
+  const listCharacters = useSelector((state) => state.charactersData);
 
-  const loadMoreCharacters = () => {
-    useGetData(nextPage);
+  useEffect(() => {
+    if (listCharacters.length == 0) {
+      loadMoreCharacters();
+    }
+  });
+  
+  const loadMoreCharacters = async () => {
+ 
+    fetch(`https://rickandmortyapi.com/api/character?page=${nextPage}`)
+      .then((response) => response.json())
+      .then(
+        (data) => (
+          dispatch(charactersActions.getDataCharacters(data.results)),
+          dispatch(charactersActions.sumNextPage()),
+          dispatch(charactersActions.loading(false))
+        )
+      )
+      .catch((err) => dispatch(charactersActions.errorAction(err.message)));
   };
 
   const filterSelected = useSelector((state) => state.selectedFilter);
   if (filterSelected != "") {
-    const filterNose = list.filter((character) => {
+    const filterCategory = listCharacters.filter((character) => {
       return (
         character.species.toLowerCase() == filterSelected.toLowerCase() ||
         character.gender.toLowerCase() == filterSelected.toLowerCase() ||
@@ -25,18 +40,18 @@ function ListCharacters({ list }) {
         character.status.toLowerCase() == filterSelected.toLowerCase()
       );
     });
-    filteredCharacters = filterNose.filter((character) => {
+    filteredCharacters = filterCategory.filter((character) => {
       return character.name.toLowerCase().includes(characterName.toLowerCase());
     });
   } else {
-    filteredCharacters = list.filter((character) => {
+    filteredCharacters = listCharacters.filter((character) => {
       return character.name.toLowerCase().includes(characterName.toLowerCase());
     });
   }
 
   return (
     <div>
-      {!list.length ? null : (
+      {!listCharacters.length ? null : (
         <React.Fragment>
           <div className="container__characterList">
             {filteredCharacters.map((character) => {

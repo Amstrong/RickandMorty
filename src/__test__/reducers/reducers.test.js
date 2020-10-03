@@ -93,9 +93,10 @@ describe("Reducers", () => {
     const initialState = {
       loading: false,
     };
-
+    const payload = true
     const action = {
       type: LOADING,
+      payload
     };
     const expected = {
       loading: true,
