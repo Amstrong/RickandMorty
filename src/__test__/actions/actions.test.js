@@ -7,6 +7,7 @@ import {
   SELECTED_FILTER,
   SUM_NEXT_PAGE,
 } from "../../frontend/types/characterTypes";
+
 describe("<Actions/>", () => {
   test("getDataCharacters Action", () => {
     const payload = charactersMocks;

@@ -15,9 +15,8 @@ function ListCharacters() {
       loadMoreCharacters();
     }
   });
-  
+
   const loadMoreCharacters = async () => {
- 
     fetch(`https://rickandmortyapi.com/api/character?page=${nextPage}`)
       .then((response) => response.json())
       .then(

@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "Amstrong Monachello",
   "license": "ISC",
   "scripts": {
-    "start:dev": "nodemon src/server/index",
+    
     "start": "node src/server/index",
     "build": "webpack --config webpack.config.js",
     "build:start": "webpack --config webpack.config.js && node src/server/index",
@@ -39,7 +39,6 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.7",
-    "serve": "^11.3.2",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-manifest-plugin": "^2.2.0"
