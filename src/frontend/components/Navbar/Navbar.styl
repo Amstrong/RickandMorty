@@ -1,5 +1,9 @@
 @media (min-width: 769px)
     .container__navbar
+        position: -webkit-sticky;
+        position: sticky;
+        z-index:4
+        top: 0;
         display:grid
         grid-template-columns: 1fr 1fr
         width:100%
@@ -27,6 +31,9 @@
     .filters
         color:white
 
+    .filter-select
+        color:blue
+
     .filters:hover
         color: #00B3CB
     .filtersPrueba
@@ -34,6 +41,9 @@
 
 @media (max-width: 768px)
   .container__navbar
+        position: -webkit-sticky;
+        position: sticky;
+        z-index:4
         display:grid
         margin:0
         grid-template-rows: 1fr 1fr
@@ -48,6 +58,7 @@
         justify-items:center
 
     .logo-navbar
+        margin-top:15px
         margin-left:30px
         width:140px
         height:45px

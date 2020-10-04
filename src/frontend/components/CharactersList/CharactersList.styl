@@ -1,60 +1,171 @@
-p
-    color:white
-    margin:0px
+@media (min-width: 769px)
+    p
+        color:white
+        margin:0px
 
-.character__name
-    font-size:20px
-    font-weight:600
+    .character__name
+        font-size:20px
+        font-weight:600
 
-.container__characterList
-    display: flex
-    flex-wrap: wrap
-    justify-content:center
+    .container__characterList
+        display: flex
+        flex-wrap: wrap
+        justify-content:center
 
-.container--character
-    width: 450px
-    height: 178px
-    margin: 10px
-    background-color: #333333
-    border-radius: 5px
-    color: red
-    display:grid
-    grid-template-columns: 1fr 1fr 
-    &:hover
+    .container--character
+        width: 450px
+        height: 178px
+        margin: 10px
+        background-color: #333333
+        border-radius: 5px
+        color: red
+        display:grid
+        grid-template-columns: 1fr 1fr 
+       
+
+
+    .photo__character
+        width: 150px
+        height: 150px
+        border-radius: 100px
+
+    .photo
+        display: grid
+        align-items: center
+        justify-items: center
+
+    .character__properties
+        display: grid
+        align-items: center
+
+
+
+    .btn--moreCharacters
+        font-family: 'Jost', sans-serif;
+        width:340px
+        height:50px
+        font-size:20px
+        background-color: #00D606
+        border: 0
+        border-radius: 5px
+        margin-top:15px
+        margin-bottom:15px
+        color:white
+        cursor: pointer
+        &:active
+            opacity: 0.7
+
+    .btn--container
+        display:grid
+        align-items:center
+        justify-items:center
+
+@media (max-width: 768px)
+    p
+        color:white
+        margin:0px
+
+    .character__name
+        font-size:20px
+        font-weight:600
+
+    .container__characterList
+        display: flex
+        flex-wrap: wrap
+        justify-content:center
+
+    .container--character
+        width: 350px
+        height: 178px
+        margin: 10px
+        background-color: #333333
+        border-radius: 5px
+        color: red
+        display:grid
+        grid-template-columns: 1fr 1fr 
+        &:hover
+            transform: scale(1.05) 
+            transition-duration: 300ms
+
+
+    .photo__character
+        width: 150px
+        height: 150px
+        border-radius: 100px
+
+    .photo
+        display: grid
+        align-items: center
+        justify-items: center
+
+    .character__properties
+        display: grid
+        align-items: center
+
+    .btn--moreCharacters
+        font-family: 'Jost', sans-serif;
+        width:340px
+        height:50px
+        font-size:20px
+        background-color: #00D606
+        border: 0
+        border-radius: 5px
+        margin-top:15px
+        margin-bottom:15px
+        color:white
+        cursor: pointer
+        &:active
+            opacity: 0.7
+
+    .btn--container
+        display:grid
+        align-items:center
+        justify-items:center
+
+@media (min-width: 320px) and (max-width: 480px) 
+    .container--character
+        width: 300px
+        height: 140px
+        margin: 10px
+        background-color: #333333
+        border-radius: 5px
+        color: red
+        display:grid
+        grid-template-columns: 1fr 1fr 
+        
+         
+
+    .photo__character
+        width: 100px
+        height: 100px
+        border-radius: 100px
+     p
+        color:white
+        margin:0px
+        font-size: 10px
+
+     .character__name
+        font-size:17px
+        font-weight:600
+
+    .btn--moreCharacters
+        font-family: 'Jost', sans-serif;
+        width:300px
+        height:50px
+        font-size:15px
+        background-color: #00D606
+        border: 0
+        border-radius: 5px
+        margin-top:15px
+        margin-bottom:15px
+        color:white
+        cursor: pointer
+        
+  
+@media (hover: hover) 
+    .container--character:hover
         transform: scale(1.05) 
         transition-duration: 300ms
 
     
 
-.photo__character
-    width: 150px
-    height: 150px
-    border-radius: 100px
-
-.photo
-    display: grid
-    align-items: center
-    justify-items: center
-
-.character__properties
-    display: grid
-    align-items: center
-
-
-
-.btn--moreCharacters
-    font-family: 'Jost', sans-serif;
-    width:340px
-    height:50px
-    font-size:20px
-    background-color: #00D606
-    border: 0
-    border-radius: 5px
-    color:white
-    cursor: pointer
-
-.btn--container
-    display:grid
-    align-items:center
-    justify-items:center
-            

@@ -10,12 +10,13 @@ function NavbarComp() {
   const selectedFilter = useSelector((state) => state.selectedFilter);
 
   const selectFilter = (filter) => {
-    if (selectedFilter) {
+    if (selectedFilter.toLowerCase() == filter.toLowerCase()) {
       dispatch(charactersActions.selectedFilter(""));
     } else {
       dispatch(charactersActions.selectedFilter(filter));
     }
   };
+
   return (
     <div className="container__navbar">
       <div className="container__logo">

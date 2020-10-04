@@ -11,8 +11,7 @@
     "build": "webpack --config webpack.config.js",
     "build:start": "webpack --config webpack.config.js && node src/server/index",
     "test": "jest",
-    "test:watch": "jest --watch"
-
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@babel/core": "^7.11.6",
@@ -21,6 +20,7 @@
     "asset-require-hook": "^1.2.0",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "cypress": "^5.3.0",
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",

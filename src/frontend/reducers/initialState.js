@@ -4,7 +4,7 @@ const initialState = {
   search: "",
   loading: false,
   error: "",
-  filters: ["Human", "Alive", "Dead", "Male", "Female", "Genetic experiment"],
+  filters: ["Human", "Alive", "Dead", "Male", "Female"],
   selectedFilter: "",
   nextPage: 1,
 };

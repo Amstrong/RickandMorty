@@ -1,5 +1,5 @@
 import React from "react";
-import "../../components/NotFound/NotFound.styl";
+import "../NotFound/NotFound.styl";
 import { Link } from "react-router-dom";
 import Morty from "../../assets/morty_404.png";
 export default function NotFoundComponent(){

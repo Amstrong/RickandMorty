@@ -7,8 +7,11 @@ import CharactersList from "../../components/CharactersList/ListCharacters";
 import ErrorComp from "../../components/ErrorComp/ErrorComp";
 import Loading from "../../components/Loading/Loading";
 import Navbar from "../../components/Navbar/NavbarComp";
+import {useSelector }from "react-redux"
+
 
 const charactersPage = (props) => {
+  const selectedFilter = useSelector((state) => state.selectedFilter);
   if (props.error.length != "") {
     return <ErrorComp />;
   }
@@ -17,10 +20,12 @@ const charactersPage = (props) => {
       <Navbar />
       <div className="container__character">
         <div className="container-char">
-          <input
+        {selectedFilter ?<p className="selected--filter"> {selectedFilter} es el filtro seleccionado. </p> : null }
+          <input  
+           
             placeholder="Ingresa el nombre de tu personaje..."
             onChange={(e) => props.setSearch(e.target.value)}
-          />
+            className="input-character"/>
         </div>
         <div>
         {props.loading ?  <CharactersList /> : <Loading/> }
