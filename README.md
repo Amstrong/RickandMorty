@@ -1,4 +1,4 @@
-# rickandmortyy
+# Rick & Morty
 
 Rick and Morty is a project developed with the public API of this series, here you can find out about all the characters and filter them by categories.
 
