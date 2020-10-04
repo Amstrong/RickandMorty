@@ -30,7 +30,5 @@ To create a development build:
 npm run build:start
 ```
 
-## Running
 
-Open the file `dist/index.html` in your browser
 
