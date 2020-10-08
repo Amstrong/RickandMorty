@@ -1,6 +1,6 @@
 # Rick & Morty
 
-Rick and Morty is a project developed with the public API of this series, here you can find out about all the characters and filter them by categories.
+Rick and Morty is a project developed with the public API of this serie, here you can find out about all the characters and filter them by categories.
 
 It is made with React and handles Server Side Render with express.
 
